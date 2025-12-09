@@ -1,0 +1,68 @@
+
+.book-kaffebaren {
+    padding: 20px 20px;
+    text-align: center;
+}
+
+.heart-list {
+    margin: 35px 0 35px;
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px;
+    align-items: center;
+}
+
+.heart-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px; 
+}
+
+.heart-item img {
+    width: 18px;
+    height: 18px;
+}
+
+.cta-tekst {
+    margin-top: 20px;
+}
+
+.kaffebaren-billede {
+    width: 100%;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+
+@media screen and (min-width: 1440px) {
+
+    .book-kaffebaren {
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+
+    .heart-list {
+        gap: 15px;
+    }
+
+    .heart-item img {
+        width: 22px;
+        height: auto;
+    }
+
+    .kaffebaren-billede {
+        width: 50%;
+        height: auto;
+        margin: 30px auto;
+        display: block; 
+    }
+
+    .cta-tekst {
+        margin: 30px 0 25px;
+        text-align: center;
+    }
+
+    .button {
+        padding: 10px 100px;
+    }
+}

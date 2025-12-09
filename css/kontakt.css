@@ -1,59 +1,51 @@
-
-/* Mobil (390px) */
-@media screen and (max-width: 390px) {
-    .kontakt-sektion {
-        text-align: center;
-        max-width: 100%;
-        margin: 0 auto;
-        padding: 20px 30px; 
-    }
-    
-    .kontakt-tekst {
-        margin-bottom: 15px;
-        line-height: 1.4;
-        color: #1a1a1a;
-        font-size: 13px;
-    }
-    
-    .kontakt-formular {
-        display: flex;
-        flex-direction: column;
-        gap: 10px; 
-        text-align: left;
-    }
-    
-    .kontakt-formular label {
-        font-size: 11px;
-        color: #1a1a1a;
-        margin-bottom: 2px;
-    }
-    
-    /* Input og textarea med inner stroke - mindre boks */
-    .kontakt-formular input,
-    .kontakt-formular textarea {
-        width: 100%;
-        padding: 6px 8px;  /* mindre bokse */
-        font-family: 'playfair display', serif;
-        font-size: 12px;
-        border-radius: 6px;
-        border: none;
-        box-shadow: inset 0 0 0 1px #1a1a1a;
-    }
-    
-    
-    .button {
-        display: inline-block;
-        margin: 40px 0; 
-        padding: 8px 20px; 
-    }
-    
-    /* Billede skjult på mobil */
-    .kontakt-billede {
-        display: none;
-    }
+/* Mobil (390px) -  */
+.kontakt-sektion {
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px 30px; /* mere luft på siderne */
 }
 
+.kontakt-tekst {
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
 
+.kontakt-formular {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+    text-align: left;
+}
+
+.kontakt-formular label {
+    margin-bottom: 2px;
+}
+
+/* Input og textarea med inner stroke - mindre boks */
+.kontakt-formular input,
+.kontakt-formular textarea {
+    width: 100%;
+    padding: 6px 8px;  
+    border-radius: 6px;
+    border: none;
+    box-shadow: inset 0 0 0 1px #1a1a1a;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Knappen med margin-bottom */
+.button {
+    display: inline-block;
+    margin: 15px 0; /* luft mellem knap og næste element */
+    padding: 8px 20px; /* mindre knap på mobil */
+}
+
+/* Billede skjult på mobil */
+.kontakt-billede {
+    display: none;
+}
+
+/* ========================= */
 /* Desktop (1440px) */
 @media screen and (min-width: 1440px) {
     .kontakt-sektion {
@@ -66,7 +58,7 @@
     }
 
     .kontakt-formular label {
-        font-size: 18px;
+        font-size: 14px;
     }
 
     .kontakt-formular input,
@@ -81,12 +73,13 @@
         padding: 10px 100px;
     }
 
+    /* Vis billedet på desktop */
     .kontakt-billede {
         display: block;
     }
 
     .kontakt-billede img {
-        max-width: 70%;
+        max-width: 60%;
         height: auto;
         display: block;
         margin: 0 auto;
