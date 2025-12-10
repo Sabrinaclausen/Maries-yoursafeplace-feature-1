@@ -1,0 +1,224 @@
+
+.wrapper {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 60px;
+}
+
+
+.menu-title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+
+.mobile-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding: 18px 18px 10px;
+}
+
+.mob-btn {
+    position: relative;
+    width: 40%;
+    height: 70px;
+    text-decoration: none;
+    color: #1a1a1a;
+}
+
+.mob-btn .btn-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+.mob-btn span {
+    position: relative;
+    z-index: 2;
+    display: block;
+    text-align: center;
+    line-height: 60px;
+}
+
+/* tilbage-til-top knap nederst til venstre */
+.back-btn {
+    position: fixed;
+    right: 14px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #c8bedf;
+    text-align: center;
+    line-height: 50px;
+    text-decoration: none;
+    color: #1a1a1a;
+    z-index: 10;
+}
+
+.menu-box {
+    background: #fff;
+    margin-bottom: 65px;
+    padding: 40px 28px;
+    border-radius: 28px;                 
+    position: relative;
+}
+
+/* ikon (kop, hjerte eller lille lilla blob) som “label” oven på boksen */
+.section-icon {
+    position: absolute;
+    top: -10px;                          /* tæt på box-kanten */
+    left: 50%;
+    transform: translateX(-50%);
+    height: 32px;                        
+}
+
+.menu-box h2 {
+    text-align: center;
+    margin-top: auto;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #333333;
+    margin-bottom: 30px;
+    text-transform: uppercase;           
+}
+
+
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 10px 0;
+}
+
+/* priklinjen der går igennem hele rækken */
+.item::before {
+    content: "";
+    position: absolute;
+    left: 50px;
+    right: 0;
+    top: 60%;                            /* lidt under midten */
+    border-bottom: 1px dotted #1a1a1a;
+    z-index: 1;
+}
+
+/* tekst og pris “sidder ovenpå” priklinjen */
+.left,
+.price {
+    position: relative;
+    z-index: 2;
+    background: #fff;
+    padding: 0 6px;
+}
+
+
+/* små allergen-ikoner ved siden af tekst (ko + havre) */
+.ico {
+    height: 30px;                       
+    margin-left: 3px;
+    transform: translateY(-4px); /* løftes lidt så de flugter med teksten */
+}
+
+
+/* lille note – fx under Filter kaffe (“Refill”) */
+.small-note {
+    color: #333;
+    margin-top: -3px;
+    margin-bottom: 14px;
+    padding-left: 6px;
+}
+
+
+
+.subsection {
+    margin-top: 26px;
+    margin-bottom: 10px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.subitem {
+    font-size: 14px;
+    margin: 3px 0;
+}
+
+
+
+.item.multi::before {                    
+    display: none; /* ingen stor priklinje bag hele blokken */
+}
+
+/* hver mad-række består af .row (venstre) og <p> (højre) */
+#mad .item.multi {
+    margin: 14px 0;
+}
+
+/* venstre del: navn + ikoner + pris med lille priklinje */
+#mad .row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px dotted #1a1a1a;
+    padding-bottom: 3px;
+    margin-bottom: 6px;
+}
+
+/* højre del: beskrivelsen */
+#mad .item.multi p {
+    margin: 0;
+    font-size: 15px;
+    color: #555;
+}
+
+
+
+.allergener-box {
+    text-align: center;
+}
+
+.allergen-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.allergen-icon {
+    height: 24px;
+}
+
+
+@media (min-width: 1200px) {
+
+    .mobile-buttons,
+    .back-btn {
+        display: none;
+    }
+    .menu-box {
+        padding: 55px 60px;
+        margin-bottom: 80px;
+    }
+
+    .menu-box h2 {
+        font-size: 30px;
+    }
+
+    .left,
+    .price {
+        font-size: 18px;
+    }
+}
