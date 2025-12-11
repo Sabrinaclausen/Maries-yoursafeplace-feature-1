@@ -1,47 +1,48 @@
 .footer {
     padding: 40px;
     display: grid;
+    gap: 20px;                     /* Lidt luft mellem sektioner */
 }
 
 .opening-list {
     list-style: none;
     padding: 0;
+    white-space: nowrap;      
+    width: 100%;              /* Hopper ned på næste linje når der ikke er plads */          
+    margin-top: 10px;
 }
 
 .opening-list li {
     display: flex;
-    justify-content: flex-start;
+    flex-wrap: wrap;          /* Gør det muligt at hoppe ned på næste linje */
+    gap: 10px;
+    align-items: center;
     font-size: 18px;
-    padding: 5px;
-    gap: 5px; 
-}
-
-.hearts {
-    text-align: center; 
+    margin-top: 10px;
 }
 
 .hours h2,
 .footer-links h2 {
-    margin-top: 0;
-    margin-bottom: 15px;
+    margin: 0 0 15px 0;
 }
 
 .socials {
     display: flex;
-    gap: 25px;
-    margin-top: 20px;
     justify-content: center;
+    gap: 25px;
 }
 
 .contact p {
     margin-bottom: 5px;
 }
 
+
 .footer-links a {
-    display: block; 
+    display: block;
     text-decoration: none;
     margin-bottom: 10px;
     font-size: 20px;
+    color: inherit;              /* bruger samme farve som resten */
 }
 
 .map iframe {
@@ -52,19 +53,19 @@
 
 .smiley {
     display: flex;
-    align-items: center;       /* Vertikal centrering */
-    justify-content: flex-start;
-    gap: 15px;                 
-    text-align: left;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-direction: row;     /* Smiley til højre, tekst til venstre */
 }
 
 .smiley p {
     margin: 0;
-    white-space: nowrap;       /* Gør at teksten aldrig bryder linjen */
 }
 
 .smiley img {
-    width: 50%;              
+    width: 120px;                
+    height: auto;
 }
 
 .copyright {
@@ -73,68 +74,112 @@
 }
 
 
-/* Mobile layout */
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 768px) {
+
     .footer-links h2 {
         display: none;
     }
+
+    .hours        { order: 1; }
+    .socials      { order: 2; }
+    .contact      { order: 3; }
+    .footer-links { order: 4; }
+    .map          { order: 5; }
+    .smiley       { order: 6; }
+    .copyright    { order: 7; }
+
+    /* Links i 2 kolonner */
+    .footer-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 kolonner */
+        text-align: center;
+        gap: 10px;
+    }
+
+    .footer,
+    .hours,
+    .contact,
+    .smiley {
+        text-align: center;
+    }
+
+    .opening-list li {
+        justify-content: center;
+    }
 }
 
-@media screen and (min-width: 480px) {
-    .footer-links h2 {
-        display: none;
-    } 
-
-    .smiley img {
-        width: 30%;              
-    }
-    .smiley{
-        align-items: center;       /* Vertikal centrering */
-    }
-}
-
-/* Tablet layout */
-@media screen and (min-width: 768px) {
-    .footer-links h2 {
-        display: none;
-    }
-}
-
-/* Desktop layout */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 768px) and (max-width: 1199px) {
 
     .footer {
-        grid-template-columns: 1.2fr 1fr 1fr 1fr;     /* 4 kolonner */
+        display: grid;
         gap: 40px;
+        text-align: center;               
         align-items: start;
-        text-align: left;
+        justify-items: center;            
     }
 
-    .map      { grid-column: 1; grid-row: 1; } 
-    .hours    { grid-column: 2; grid-row: 1; }
-    .footer-links { grid-column: 3; grid-row: 1; }
-    .contact  { grid-column: 4; grid-row: 1; }
-
-    .socials {
-        grid-column: 4;
-        grid-row: 1;          /* samme række */
-        margin-top: 140px;    
-        justify-content: flex-start;
+    .hours        { order: 2; }
+    .footer-links { order: 3; }
+    .contact      { order: 4; }
+    .socials      { 
+        order: 5; /* Flyttet efter kontaktinfo */
+        justify-content: center;          
     }
 
     .smiley {
-        grid-column: 4;
-        grid-row: 1;          /* samme række */
-        margin-top: 180px;    /* under ikonerne */
-        text-align: left;
+        order: 6;
+        grid-column: 1 / -1;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;             
+        gap: 10px;
     }
 
     .copyright {
-        grid-column: 1 / 5;
+        order: 7;
+        grid-column: 1 / -1;
         text-align: center;
     }
 
     .footer-links h2 {
-        display: block;
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+
+    .footer {
+        grid-template-columns: 1.2fr 1fr 1fr 1fr; /* 4 kolonner */
+        gap: 40px;
+        text-align: left;
+    }
+
+    .map          { grid-column: 1; grid-row: 1; } 
+    .hours        { grid-column: 2; grid-row: 1; }
+    .footer-links { grid-column: 3; grid-row: 1; }
+    .contact      { grid-column: 4; grid-row: 1; }
+
+    .socials {
+        grid-column: 4;
+        grid-row: 1;
+        margin-top: 140px;
+        justify-content: flex-start; /* Venstrejusteret */
+    }
+
+    .smiley {
+        grid-column: 4;
+        grid-row: 1;
+        margin-top: 180px;
+        flex-direction: row;    
+        justify-content: flex-start;
+    }
+
+    .footer-links h2 {
+        display: block; /* Viser overskriften igen */
+    }
+
+    .copyright {
+        grid-column: 1 / 5; /* Spænd over alle kolonner */
     }
 }
