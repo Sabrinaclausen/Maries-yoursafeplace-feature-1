@@ -2,6 +2,7 @@
     padding: 40px;
     display: grid;
     gap: 20px;                     /* Lidt luft mellem sektioner */
+    padding-bottom: 10px;
 }
 
 .opening-list {
@@ -70,9 +71,11 @@
 
 .copyright {
     text-align: center;
-    margin-top: 10px;
 }
 
+@media screen and (max-width: 480px) {
+    .footer { gap: 12px; }
+}
 
 @media screen and (max-width: 768px) {
 
@@ -88,7 +91,6 @@
     .smiley       { order: 6; }
     .copyright    { order: 7; }
 
-    /* Links i 2 kolonner */
     .footer-links {
         display: grid;
         grid-template-columns: 1fr 1fr; /* 2 kolonner */
@@ -111,8 +113,8 @@
 @media screen and (min-width: 768px) and (max-width: 1199px) {
 
     .footer {
-        display: grid;
-        gap: 40px;
+        display: grid; /* Bevarer grid layoutet */
+        gap: 18px;
         text-align: center;               
         align-items: start;
         justify-items: center;            
@@ -151,7 +153,7 @@
 
     .footer {
         grid-template-columns: 1.2fr 1fr 1fr 1fr; /* 4 kolonner */
-        gap: 40px;
+        gap: 30px;
         text-align: left;
     }
 

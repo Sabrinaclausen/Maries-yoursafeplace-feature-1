@@ -1,33 +1,49 @@
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+html, body {
+  overflow-x: hidden;
+}
+
+.text-banner {
+  width: 100%;
+  overflow: hidden;
+  background: #C3DDF2;
+  padding: 16px 0;
+}
+
+/* Selve båndet */
+.track {
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  animation: scroll 25s linear infinite;
+}
+
+/* Hver halvdel af indholdet */
+.content {
+  display: flex;
+}
+
+/* H2 styling */
+.content h2 {
+  margin: 0;
+  padding: 0 70px;
+  white-space: nowrap;
+  letter-spacing: 2px;  
+}
+
+/* Scroll animation (CSS-kun) */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
   }
-  
-  .text-banner {
-    white-space: nowrap;
-    width: 100%;
-    background-color: #C3DDF2;
-    overflow: hidden;
+  100% {
+    transform: translateX(-50%);
   }
-  
-  .text-track {
-    display: flex; 
-    animation: scroll 25s linear infinite;
-    padding: 15px 0;
-  }
-  
-  .text-track h2 {
-    display: flex; 
-    align-items: center;
-    margin: 0 5rem;
-    white-space: nowrap;
-  }
-  
-  @keyframes scroll {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  
+}
+
+
+
+
+
+
   
   

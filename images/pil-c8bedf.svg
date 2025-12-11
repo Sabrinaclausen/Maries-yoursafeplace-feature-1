@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1276 1836">
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1836 1276">
+  <!-- Generator: Adobe Illustrator 30.0.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 123)  -->
   <defs>
     <style>
-      .cls-1 {
+      .st0 {
         fill: none;
         stroke: #c8bedf;
         stroke-linecap: round;
@@ -11,7 +12,7 @@
       }
     </style>
   </defs>
-  <g id="Layer_1-2" data-name="Layer 1">
-    <path class="cls-1" d="M1173,103C867.63,409.78,519.66,697.02,125.47,882.11c-29.96,14.07-29.96,57.71,0,71.78,394.2,185.09,742.16,472.33,1047.53,779.11"/>
+  <g id="Layer_1-2">
+    <path class="st0" d="M1733,1173c-306.78-305.37-594.02-653.34-779.11-1047.53-14.07-29.96-57.71-29.96-71.78,0-185.09,394.2-472.33,742.16-779.11,1047.53"/>
   </g>
 </svg>
