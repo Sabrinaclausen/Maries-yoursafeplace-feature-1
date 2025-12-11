@@ -36,9 +36,8 @@
 }
 
 
-/* Knappen med margin-bottom */
 .button {
-    display: inline-block;
+    display: inline-block; /* gør knappen inline-block for bedre kontrol */
     margin: 15px 0; 
     padding: 8px 20px; 
 }
@@ -47,6 +46,7 @@
 .kontakt-billede {
     display: none;
 }
+
 
 @media screen and (max-width: 360px) {
     .kontakt-sektion {
@@ -93,7 +93,7 @@
     }
 
     .kontakt-formular label {
-        font-size: 14px;
+        font-size: 20px;
     }
 
     .kontakt-formular input,

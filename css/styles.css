@@ -2,9 +2,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #F8F0E2;
-    }
-    
-    button {
+}
+
+button {
     background-color: #C8BEDF;
     color: #1a1a1a; 
     font-family: 'playfair display', serif; 
@@ -13,110 +13,148 @@ body {
     padding: 10px 30px;
     border-radius: 10px;
     border: 1px solid #6E6E6E; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* --- Shine variables --- */
+:root {
+    --shine-degree: 120deg; /* Vinkel på shine-effekten */
+    --shine-color: rgba(255, 255, 255, 0.35); /* Farven på shine-effekten */
+    --shine-effect: linear-gradient(
+        var(--shine-degree), 
+        transparent,
+        var(--shine-color),
+        transparent
+    );
+    --shine-speed: 4s; /* Hvor lang tid shine-animationen tager */
+}
+
+/* --- Shine Effekt --- */
+button.shine-btn::before {
+    content: "";  /* Shine-laget */
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 100%;
+    height: 100%;
+    background: var(--shine-effect); /* Anvender shine-gradienten */
+    animation: shine var(--shine-speed) ease-in-out infinite; /* Evig animation frem og tilbage */
+}
+
+/* Flytter shine-laget fra venstre til højre hen over knappen */
+@keyframes shine {
+    0% {
+        left: -120%;
     }
-    
-    /* Mobil */
-    @media screen and (max-width: 390px) {
-        
-    h1{
-    color: #FFFDF8; 
-    font-size: 27px;
-    font-family: 'playfair display', serif;
-    text-transform: uppercase;
-    margin: 0 0 20px;
+    100% {
+        left: 120%;
     }
-    
-    h2{
-    color: #1a1a1a; 
-    font-size: 25px;
-    font-family: 'playfair display', serif;
-    text-transform: uppercase;
-    margin: 0 0 20px;
-    }
-    
-    h3{
-    color: #1a1a1a; 
-    font-size: 20px;
-    font-family: 'playfair display', serif;
-    text-transform: uppercase;
-    margin: 0 0 20px;
-    }
-    
-    h4{
-    color: #1a1a1a; 
-    font-size: 18px;
-    font-family: 'playfair display', serif;
-    text-transform: uppercase;
-    margin: 0 0 20px;
-    }
-    
-    p{
-    color: #1a1a1a; 
-    font-size: 14px;
-    font-family: 'source sans 3', sans-serif;
-    margin: 0 0px;
-    }
-    
-    a{
-    color: #1A1A1A;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-family: 'playfair display', serif;
-    font-size: 18px;
-    }
-    
-    
-    }
-    
-    /* Desktop */
-    @media screen and (min-width: 1440px) {
-    
-    h1{
-    color: #FFFDF8; 
-    font-size: 40px;
-    font-family: 'playfair display', serif;
-    text-transform: uppercase;
-    }
-    
-    h2{
-    color: #1a1a1a; 
-    font-size: 30px;
-    font-family: 'playfair display', serif;
-    text-transform: uppercase;
-    }
-    
-    h3{
-    color: #1a1a1a;
-    font-size: 20px;
-    font-family: 'playfair display', serif;
-    text-transform: uppercase;
-    }
-    
-    h4{
-    color: #1a1a1a;
-    font-size: 18px;
-    font-family: 'playfair display', serif;
-    text-transform: uppercase;
-    }
-    
-    p{
-    color: #1a1a1a;
-    font-size: 14px;
-    font-family: 'source sans 3', sans-serif;
-    }
-    
-    a {
-    color: #1A1A1A;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-family: 'playfair display', serif;
-    font-size: 10px;
-    }
-    
-    .button {
-    font-size: 15px;
-    }
-    
+}
+
+/* ---------------------------- */
+/* Mobil */
+/* ---------------------------- */
+@media screen and (max-width: 390px) {
+
+    h1 {
+        color: #FFFDF8; 
+        font-size: 27px;
+        font-family: 'playfair display', serif;
+        text-transform: uppercase;
+        margin: 0 0 20px;
     }
 
+    h2 {
+        color: #1a1a1a; 
+        font-size: 25px;
+        font-family: 'playfair display', serif;
+        text-transform: uppercase;
+        margin: 0 0 20px;
+    }
+
+    h3 {
+        color: #1a1a1a; 
+        font-size: 20px;
+        font-family: 'playfair display', serif;
+        text-transform: uppercase;
+        margin: 0 0 20px;
+    }
+
+    h4 {
+        color: #1a1a1a; 
+        font-size: 18px;
+        font-family: 'playfair display', serif;
+        text-transform: uppercase;
+        margin: 0 0 20px;
+    }
+
+    p {
+        color: #1a1a1a; 
+        font-size: 14px;
+        font-family: 'source sans 3', sans-serif;
+        margin: 0 0px;
+    }
+
+    a {
+        color: #1A1A1A;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: 'playfair display', serif;
+        font-size: 18px;
+    }
+}
+
+/* ---------------------------- */
+/* Desktop */
+/* ---------------------------- */
+@media screen and (min-width: 1440px) {
+
+    h1 {
+        color: #FFFDF8; 
+        font-size: 40px;
+        font-family: 'playfair display', serif;
+        text-transform: uppercase;
+    }
+
+    h2 {
+        color: #1a1a1a; 
+        font-size: 30px;
+        font-family: 'playfair display', serif;
+        text-transform: uppercase;
+    }
+
+    h3 {
+        color: #1a1a1a;
+        font-size: 20px;
+        font-family: 'playfair display', serif;
+        text-transform: uppercase;
+    }
+
+    h4 {
+        color: #1a1a1a;
+        font-size: 18px;
+        font-family: 'playfair display', serif;
+        text-transform: uppercase;
+    }
+
+    p {
+        color: #1a1a1a;
+        font-size: 14px;
+        font-family: 'source sans 3', sans-serif;
+    }
+
+    a {
+        color: #1A1A1A;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: 'playfair display', serif;
+        font-size: 10px;
+    }
+
+    .button {
+        font-size: 15px;
+    }
+}
