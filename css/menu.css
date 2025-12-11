@@ -1,13 +1,16 @@
+/* WRAPPER */
 .wrapper {
     width: 80%;
-    max-width: 1100px;  
+    max-width: 1000px;  
     margin: 0 auto;
 }
 
 .menu-title {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 20px;
+    z-index: 20;
+    color: #1a1a1a;
 }
 
 .intro {
@@ -16,6 +19,7 @@
     line-height: 1.6;
 }
 
+/* MOBILKNAPPER */
 .mobile-buttons {
     display: flex;
     justify-content: center;
@@ -26,7 +30,7 @@
 
 .mob-btn {
     position: relative;
-    width: 40%;
+    width: 45%;
     height: 70px;
     display: block;
     text-decoration: none;
@@ -48,6 +52,7 @@
     margin: 0;
 }
 
+/* TIL TOP KNAP */
 .back-btn {
     position: fixed;
     right: 14px;
@@ -61,37 +66,52 @@
     justify-content: center;
     align-items: center;
     z-index: 999;
-    opacity: 1;
-    transition: opacity .3s ease;
+
+    /* NYT — skjult som standard */
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+
+    /* NYT — blød fade/slide effekt */
+    transition: opacity .25s ease, transform .25s ease;
 }
 
-/* Ikon */
+/* Nyt: synlig tilstand */
+.back-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
 .back-btn img {
     width: 30px;
-    opacity: 0.5; /* lilla gennemsigtighed som i dit design */
 }
 
-
+/* SEKTIONSWRAPPER */
 .menu-section {
     position: relative;
-    margin-bottom: 80px;
+    margin: 40px 0 80px;
+    z-index: 2; /* skaber stacking context */
 }
+
 
 .menu-box {
     background: #FFFDF8;
-    padding: 20px 20px;
+    padding: 40px 30px;
     border-radius: 28px;
     position: relative;
     z-index: 5;
     max-width: 900px;    
-    margin: 0 auto 50px;  
+    margin: 0 auto 50px;
 }
 
 .menu-box h2 {
     text-align: center;
     margin: 0 0 10px;
+    z-index: 10;
 }
 
+/* SMÅ TITLER */
 .subtitle {
     text-align: center;
     color: #444;
@@ -99,57 +119,47 @@
     text-transform: uppercase;
 }
 
-
+/* SEKTIONS-IKON */
 .section-icon {
     position: absolute;
     top: -14px;
     left: 50%;
     transform: translateX(-50%);
     height: 34px;
-}
-
-.menu-box {
-    position: relative; 
-    overflow: hidden;   /* skjul det der går ud over kanten */
+    z-index: 10;
 }
 
 .blobs-bg {
     position: absolute;
-    inset: 0; 
-    z-index: 1;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw; /* strækker sig til skærmens kanter */
+    height: 100%;
+    z-index: 1; /* altid nederst */
     pointer-events: none;
 }
 
+/* BLOBS */
 .blobs-bg img {
     position: absolute;
-    top: 0;
-    bottom: 0;
     height: 100%;
     width: auto;
+    top: 0;
     opacity: 1;
 }
 
-.blob-left {
-    left: 0;
-}
+.blob-left { left: 0; }
+.blob-right { right: 0; }
 
-.blob-right {
-    right: 0;
-}
-
-/* sørg for at indholdet ligger OVER blobs */
-.menu-box > *:not(.blobs-bg) {
-    position: relative;
-    z-index: 5;
-}
-
+/* MENU GRID */
 .menu-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 22px;
 }
 
-
+/* MENU ITEMS */
 .item {
     display: flex;
     justify-content: space-between;
@@ -180,6 +190,8 @@
     margin-left: 4px;
     transform: translateY(-4px);
 }
+
+/* TILVALG */
 .tilvalg {
     margin-top: 35px;
     text-align: center;
@@ -196,57 +208,59 @@
     font-size: 15px;
 }
 
-.price {
-    min-width: 40px;
-    text-align: right;
-}
-
-.small-note {
-    margin-top: 3px;
-    color: #444;
-    padding-left: 4px;
-}
-
-
-.subsection {
-    margin-top: 35px;
-    margin-bottom: 12px;
-    text-align: center;
-}
-
-.subitem {
-    font-size: 15px;
-    margin: 4px 0;
-}
-
+/* ALLERGENER – side om side */
 .allergener-box {
     text-align: center;
 }
 
-.allergen-line {
+.allergen-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    margin: 12px 0;
+    gap: 60px;        /* afstand mellem allergenerne */
+    margin-top: 20px;
+}
+
+.allergen-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;        /* afstand mellem ikon og tekst */
 }
 
 .allergen-icon {
     height: 26px;
 }
 
-@media only screen and (max-width: 768px) {
+
+/* MOBIL */
+@media screen and (max-width: 767px) {
     .menu-title,
     .intro {
         display: none;
     }
-}
-
-
-@media screen and (min-width: 1200px) {
 
     .mobile-buttons,
-    .back-btn { display: none; }
+    .back-btn {
+        display: flex;
+    }
+
+    /* Små blobs på mobil */
+    .blobs-bg img {
+        width: 30px;
+        height: 100%;
+    }
+}
+
+/* TABLET */
+@media screen and (min-width: 768px) {
+    .mobile-buttons,
+    .back-btn {
+        display: none;
+    }
+}
+
+/* DESKTOP BREDE GRID */
+@media screen and (min-width: 1200px) {
 
     .menu-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -258,8 +272,12 @@
 
     .menu-box {
         padding: 55px 60px;
-        max-width: 100%; 
         margin: 0 auto 90px;
+        max-width: 100%;
     }
-
+    .allergener-box {
+        max-width: 400px;   
+        margin: 30px auto; /* centreret */
+        padding: 30px 20px; 
+    }
 }
