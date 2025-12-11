@@ -1,8 +1,7 @@
-/* WRAPPER */
 .wrapper {
     width: 80%;
-    max-width: 1000px;  
-    margin: 0 auto;
+    max-width: 1000px;
+    margin: 0 auto; /* centrer siden */
 }
 
 .menu-title {
@@ -19,7 +18,6 @@
     line-height: 1.6;
 }
 
-/* MOBILKNAPPER */
 .mobile-buttons {
     display: flex;
     justify-content: center;
@@ -40,21 +38,21 @@
 .mob-btn .btn-bg {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100%; /* baggrundsbillede fylder hele knappen */
 }
 
 .mob-btn h2 {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* tekst over billedet */
     text-align: center;
     line-height: 68px;
     font-size: 15px;
     margin: 0;
 }
 
-/* TIL TOP KNAP */
+
 .back-btn {
-    position: fixed;
+    position: fixed; /* følger skærmen */
     right: 14px;
     bottom: 20px;
     width: 10%;
@@ -65,35 +63,32 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    z-index: 999; /* øverst på siden */
 
-    /* NYT — skjult som standard */
+    /* skjult tilstand */
     opacity: 0;
     transform: translateY(10px);
     pointer-events: none;
 
-    /* NYT — blød fade/slide effekt */
     transition: opacity .25s ease, transform .25s ease;
 }
 
-/* Nyt: synlig tilstand */
 .back-btn.visible {
     opacity: 1;
     transform: translateY(0);
-    pointer-events: auto;
+    pointer-events: auto; /* klikbar */
 }
 
 .back-btn img {
     width: 30px;
 }
 
-/* SEKTIONSWRAPPER */
+
 .menu-section {
     position: relative;
     margin: 40px 0 80px;
-    z-index: 2; /* skaber stacking context */
+    z-index: 2;
 }
-
 
 .menu-box {
     background: #FFFDF8;
@@ -101,17 +96,17 @@
     border-radius: 28px;
     position: relative;
     z-index: 5;
-    max-width: 900px;    
+    max-width: 900px;
     margin: 0 auto 50px;
 }
 
+/* Titel i boks */
 .menu-box h2 {
     text-align: center;
     margin: 0 0 10px;
-    z-index: 10;
 }
 
-/* SMÅ TITLER */
+
 .subtitle {
     text-align: center;
     color: #444;
@@ -119,64 +114,109 @@
     text-transform: uppercase;
 }
 
-/* SEKTIONS-IKON */
-.section-icon {
+
+/* Sektion-ikoner (hjerter og kaffekopper) */
+.section-icons {
     position: absolute;
-    top: -14px;
+    top: -32px;                     /* kommer tættere på titlen */
     left: 50%;
     transform: translateX(-50%);
-    height: 34px;
-    z-index: 10;
+    display: flex;
+    gap: 45px;                      /* hjerterne spredes meget mere ud */
+    z-index: 12; /* over menu-boks */
+    pointer-events: none;
+}
+
+.section-icons img {
+    width: 46px;                   
+    height: auto;
+}
+
+/* Variation — gør dem asymmetriske */
+.section-icons img:nth-child(1) {
+    transform: translateY(6px) rotate(-6deg); /* lidt ned og roteret */
+}
+
+.section-icons img:nth-child(2) {
+    transform: translateY(-8px) rotate(3deg) scale(1.05);
+}
+
+.section-icons img:nth-child(3) {
+    transform: translateY(4px) rotate(5deg);
 }
 
 .blobs-bg {
     position: absolute;
     top: 0;
     left: 50%;
-    transform: translateX(-50%);
-    width: 100vw; /* strækker sig til skærmens kanter */
+    transform: translateX(-50%); /* centrer baggrund */
+    width: 100vw; /* går helt ud til skærmens kanter */
     height: 100%;
-    z-index: 1; /* altid nederst */
-    pointer-events: none;
+    z-index: 1;
+    pointer-events: none; /* klik går igennem */
 }
 
-/* BLOBS */
 .blobs-bg img {
     position: absolute;
     height: 100%;
     width: auto;
     top: 0;
-    opacity: 1;
 }
 
 .blob-left { left: 0; }
 .blob-right { right: 0; }
 
-/* MENU GRID */
 .menu-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 25px; /* afstand mellem items */
 }
 
-/* MENU ITEMS */
+
+.item-group {
+    display: flex;
+    flex-direction: column; /* small-note kommer under */
+    align-items: flex-start;
+    gap: 4px;
+}
+
 .item {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* venstre tekst og pris */
     align-items: center;
+    width: 100%; /* alle items samme bredde */
     position: relative;
 }
 
+/* Venstre tekstområde */
+.left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    line-height: 1.2;
+}
+
+/* Ikoner ved siden af drikken */
+.left img {
+    height: 28px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    transform: none;
+}
+
+/* Dotted line */
 .item::before {
-    content: "";
+    content: ""; /* prikkerne */    
     position: absolute;
-    top: 60%;
+    top: 60%; /* justerer prikkerne i linje */
     left: 0;
     right: 0;
     border-bottom: 1px dotted #1a1a1a;
     z-index: 1;
 }
 
+/* Overlapper dotted line */
 .left,
 .price {
     position: relative;
@@ -185,30 +225,47 @@
     padding: 0 4px;
 }
 
-.left img {
-    height: 28px;
-    margin-left: 4px;
-    transform: translateY(-4px);
+
+.small-note {
+    margin: 0;
+    padding-left: 4px;
+    font-size: 15px;
+    line-height: 1.3;
+    background: #FFFDF8;
+    z-index: 2;
+    position: relative; /* undgår at ramme prikket linje */
 }
 
 /* TILVALG */
+
 .tilvalg {
-    margin-top: 35px;
     text-align: center;
 }
 
-.tilvalg h3 {
-    margin-bottom: 12px;
-    font-size: 18px;
-    font-weight: 600;
+.tilvalg-grid {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto; /* centreret */
 }
 
-.tilvalg p {
-    margin: 4px 0;
+.tilvalg-grid .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.tilvalg-grid .price {
+    margin-left: auto;
+}
+
+.tilvalg-label {
     font-size: 15px;
+    margin: 10px 0;
+    text-align: left;
 }
 
-/* ALLERGENER – side om side */
+
 .allergener-box {
     text-align: center;
 }
@@ -217,26 +274,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 60px;        /* afstand mellem allergenerne */
+    gap: 60px;
     margin-top: 20px;
 }
 
 .allergen-line {
     display: flex;
     align-items: center;
-    gap: 10px;        /* afstand mellem ikon og tekst */
+    gap: 10px;
 }
 
 .allergen-icon {
     height: 26px;
 }
 
-
 /* MOBIL */
+
 @media screen and (max-width: 767px) {
     .menu-title,
     .intro {
-        display: none;
+        display: none; /* skjules på mobil */
     }
 
     .mobile-buttons,
@@ -244,14 +301,14 @@
         display: flex;
     }
 
-    /* Små blobs på mobil */
     .blobs-bg img {
-        width: 30px;
+        width: 30px; /* smallere blobs på mobil */
         height: 100%;
     }
 }
 
 /* TABLET */
+
 @media screen and (min-width: 768px) {
     .mobile-buttons,
     .back-btn {
@@ -259,7 +316,8 @@
     }
 }
 
-/* DESKTOP BREDE GRID */
+/* DESKTOP – 2 kolonner */
+
 @media screen and (min-width: 1200px) {
 
     .menu-grid {
@@ -275,9 +333,10 @@
         margin: 0 auto 90px;
         max-width: 100%;
     }
+
     .allergener-box {
-        max-width: 400px;   
-        margin: 30px auto; /* centreret */
-        padding: 30px 20px; 
+        max-width: 400px;
+        margin: 30px auto;
+        padding: 30px 20px;
     }
 }

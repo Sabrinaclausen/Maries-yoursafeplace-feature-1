@@ -1,46 +1,39 @@
-// Når hele HTML-strukturen er indlæst, kører scriptet
+// Kør script når DOM'en er klar
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Henter "til top" knappen
+    // Elementer bruges til at styre vis/skjul af knappen
     const backBtn = document.querySelector(".back-btn");
-
-    // Henter wrapperen (bruges til at vide hvornår man er scrollet ned)
     const wrapper = document.querySelector(".wrapper");
-
-    // Henter allergener-sektionen (bruges til at vide hvornår knappen skal forsvinde)
     const allergener = document.querySelector(".allergener-box");
 
-    // Funktion der styrer om knappen skal vises eller skjules
+    // Funktion der viser/skjuler knappen
     function updateBackBtn() {
 
-        // Finder wrapperens afstand fra toppen af skærmen
-        // Når værdien er negativ, betyder det at man er scrollet forbi wrapperens top
+        // Wrapperens position ift. toppen
         const wrapperTop = wrapper.getBoundingClientRect().top;
 
-        // Finder allergener-sektionens afstand fra toppen af skærmen
+        // Allergener-sektionens position
         const allergenerTop = allergener.getBoundingClientRect().top;
 
-        // Viser knappen når brugeren har scrollet lidt forbi toppen (fx -80px)
-        const shouldShow = wrapperTop < -80;
+        // Vis knappen når der er scrollet forbi starten af wrapper
+        const shouldShow = wrapperTop < 100;
 
-        // Når allergener-toppen kommer inden for 300px af toppen af skærmen
-        // = knappen skal forsvinde lige før allergener-sektionen begynder
+        // Skjul knappen når allergener nærmer sig
         const passedAllergener = allergenerTop <= 300;
 
-        // Logikken for at vise/skjule knappen:
-        // Vis knappen hvis man er scrollet ned (shouldShow = true)
-        // OG allergener ikke er tæt på (passedAllergener = false)
+        // Logik: vis kun når man er scrollet ned, og allergener ikke er tæt på
         if (shouldShow && !passedAllergener) {
-            backBtn.classList.add("visible");   // gør knappen synlig
+            backBtn.classList.add("visible");
         } else {
-            backBtn.classList.remove("visible"); // skjul knappen
+            backBtn.classList.remove("visible");
         }
     }
 
-    // Når brugeren scroller, opdateres knappen (med passive for bedre performance)
+    // Opdater ved scroll
     window.addEventListener("scroll", updateBackBtn, { passive: true });
 
-    // Kør funktionen én gang ved load, i tilfælde af at man åbner siden midt på den
+    // Opdater ved første load
     updateBackBtn();
 });
+
 
