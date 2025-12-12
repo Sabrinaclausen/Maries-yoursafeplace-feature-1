@@ -4,7 +4,7 @@ html, body {
 
 .text-banner {
   width: 100%;
-  overflow: hidden;
+  overflow: hidden; /* Skjuler scrollbarer */
   background: #C3DDF2;
   padding: 16px 0;
 }
@@ -14,12 +14,12 @@ html, body {
   display: flex;
   flex-wrap: nowrap;
   white-space: nowrap;
-  animation: scroll 25s linear infinite;
+  animation: scroll 25s linear infinite; /* Juster hastigheden her */
 }
 
 /* Hver halvdel af indholdet */
 .content {
-  display: flex;
+  display: flex; /* Flex container for at arrangere h2 elementer i række */
 }
 
 /* H2 styling */
@@ -28,9 +28,12 @@ html, body {
   padding: 0 70px;
   white-space: nowrap;
   letter-spacing: 2px;  
+  font-family: 'playfair display', serif;
+  font-size: 20px;
+  color: #1a1a1a;
 }
 
-/* Scroll animation (CSS-kun) */
+/* Scroll animation */
 @keyframes scroll {
   0% {
     transform: translateX(0);
