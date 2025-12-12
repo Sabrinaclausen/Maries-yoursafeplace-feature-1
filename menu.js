@@ -18,14 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
         // Vis knappen når der er scrollet forbi starten af wrapper
         const shouldShow = wrapperTop < 100;
 
-        // Skjul knappen når allergener nærmer sig
+        // Skjul knappen når allergener nærmer sig 300px fra toppen
         const passedAllergener = allergenerTop <= 300;
 
         // Logik: vis kun når man er scrollet ned, og allergener ikke er tæt på
         if (shouldShow && !passedAllergener) {
-            backBtn.classList.add("visible");
+            backBtn.classList.add("visible"); // Vis knappen
         } else {
-            backBtn.classList.remove("visible");
+            backBtn.classList.remove("visible"); // Skjul knappen
         }
     }
 

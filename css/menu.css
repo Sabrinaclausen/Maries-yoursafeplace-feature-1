@@ -15,20 +15,19 @@
 .intro {
     text-align: center;
     margin-bottom: 55px;
-    line-height: 1.6;
 }
 
 .mobile-buttons {
     display: flex;
     justify-content: center;
     gap: 10px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
     padding: 15px;
 }
 
 .mob-btn {
     position: relative;
-    width: 45%;
+    width: 40%;
     height: 70px;
     display: block;
     text-decoration: none;
@@ -56,11 +55,11 @@
     right: 14px;
     bottom: 20px;
     width: 10%;
-    height: 60px;
-    border-radius: 50%;
+    height: 50px;
+    border-radius: 50%; /* rund knap */
     background: #ffffff;
-    border: 2px solid #4a4a4a;
-    display: flex;
+    border: 1px solid #4a4a4a;
+    display: flex; 
     justify-content: center;
     align-items: center;
     z-index: 999; /* øverst på siden */
@@ -68,14 +67,14 @@
     /* skjult tilstand */
     opacity: 0;
     transform: translateY(10px);
-    pointer-events: none;
+    pointer-events: none; /* ikke klikbar når skjult */
 
-    transition: opacity .25s ease, transform .25s ease;
+    transition: opacity .25s ease, transform .25s ease; /* glidende overgang */
 }
 
 .back-btn.visible {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; /* synlig */
+    transform: translateY(0); /* tilbage til synlig position */
     pointer-events: auto; /* klikbar */
 }
 
@@ -265,6 +264,11 @@
     text-align: left;
 }
 
+.tilvalg p{
+    text-align: center;
+    margin-top: 10px;
+}
+
 
 .allergener-box {
     text-align: center;
@@ -316,7 +320,7 @@
     }
 }
 
-/* DESKTOP – 2 kolonner */
+/* DESKTOP  */
 
 @media screen and (min-width: 1200px) {
 
